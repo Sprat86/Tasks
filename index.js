@@ -108,6 +108,40 @@ console.log('Разница сумм диагоналей равна - ' + diago
 
 
 
+/** Задача:
+ * Схожа с предыдущей, однако в ней первый элемент массива принимает значение количества столбцов/строк матрицы.
+ * Остальные элементы - часть матрицы.
+ * Если в массиве больше элементов, чем необходимо для матрицы - ненужные элементы отбросить.
+ */
+
+let array = [3, 1, 2, 3, 4, 5, 6, 9, 8, 9, 1, 5];
+
+function diagonalDifference(arr) {
+    let rightDiagonal = 0;
+    let leftDiagonal = 0;
+    arr.length = Math.pow(arr[0], 2) + 1;
+    console.log(arr); // [3, 1, 2, 3, 4, 5, 6, 9, 8, 9]
+
+    for (let i = 1; i < arr.length; i += (arr[0] + 1)) {
+        rightDiagonal += arr[i];
+    }
+    console.log(rightDiagonal);
+
+    for (let i = arr[0]; i < arr.length - 1; i += (arr[0] - 1)) {
+        leftDiagonal += arr[i];
+    }
+    console.log(leftDiagonal);
+    if (rightDiagonal > leftDiagonal) {
+        return rightDiagonal - leftDiagonal;
+    } else {
+        return -(rightDiagonal - leftDiagonal);
+    }
+}
+
+console.log('Разница сумм диагоналей равна - ' + diagonalDifference(array)); // Разница сумм диагоналей равна - 2.
+
+
+
 
 
 
