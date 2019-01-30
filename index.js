@@ -56,8 +56,55 @@ console.log(aVeryBigSum(arr)); //5000000050
 
 
 
+/**
+ * Задача:
+ * Представить массив целых чисел arr, как квадратную матрицу.
+ * Например: массив [1, 2, 3, 4, 5, 6, 7, 8, 9]
+ * Квадратная матрица:
+ 1    2   3
+ 4    5   6
+ 7    8   9
+ Левая диагональ - 1, 5, 9
+ Правая диагональ - 3, 5, 7.
+
+ Рассчитайте абсолютную разницу между суммами ее диагоналей.
+ Если в массиве больше элементов, чем необходимо для матрицы - ненужные элементы отбросить.
+ Функция diagonalDifference(arr) должна принимать массив с неограниченным количеством целых чисел.
+ * */
 
 
+let array = [4, 5, 8, 8, 10, 1, 34, 6, 98, 34, 67, 1, 5, 7, 21, 57, 45, 27];
+let array_2 = [1, 34, 6, 98, 34, 67, 14, 5, 88, 8, 10, 5, 7, 21, 57, 45, 27, 34, 6, 98, 34, 67, 34, 54, 45, 5, 8, 2];
+
+function diagonalDifference(arr) {
+    let columns = Math.floor((Math.sqrt(arr.length)));
+    console.log(columns); // 4
+    arr.length = Math.pow(columns, 2);
+    console.log(arr); // [4, 5, 8, 8, 10, 1, 34, 6, 98, 34, 67, 1, 5, 7, 21, 57];
+    let rightDiagonal = 0;
+    let leftDiagonal = 0;
+
+    for(let i=0; i<arr.length; i+=(columns+1)){
+        // console.log(arr[i]);
+        rightDiagonal += arr[i];
+    }
+    console.log('Правая диагональ равна ' + rightDiagonal);
+
+    for(let i=columns-1; i<arr.length-1; i+=(columns-1)){
+        // console.log(arr[i]);
+        leftDiagonal += arr[i];
+    }
+    console.log('Левая диагональ равна ' + leftDiagonal);
+    // Делаем проверку: если из "правая" диагональ больше "левой", то вычитаем как есть. Если "правая" меньше, то добавляем по математическим правилам перед скобкой знак "-", чтобы число
+    // стало положительным.
+    if(rightDiagonal > leftDiagonal){
+        return rightDiagonal - leftDiagonal;
+    } else {
+        return -(rightDiagonal - leftDiagonal);
+    }
+}
+console.log('Разница сумм диагоналей равна - ' + diagonalDifference(array)); // Разница сумм диагоналей равна - 48
+console.log('Разница сумм диагоналей равна - ' + diagonalDifference(array_2)); // Разница сумм диагоналей равна - 117
 
 
 
