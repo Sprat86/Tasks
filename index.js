@@ -7,6 +7,7 @@
  * */
 let a = [17, 28, 30];
 let b = [99, 16, 8];
+
 function compareTriplets(a, b) {
     let arr1 = [];
     let arr2 = [];
@@ -20,13 +21,13 @@ function compareTriplets(a, b) {
     let result = [arr1.length, arr2.length];
     return result;
 }
+
 let count = compareTriplets(a, b);
 console.log(count); // [2, 1]
 
 /** А теперь представим результат в виде строки:*/
 let str = count.join(':');
 console.log('Игра завершена со счётом ' + str); // Игра завершена со счётом 2:1
-
 
 
 /** Задача:
@@ -52,8 +53,8 @@ function aVeryBigSum(ar) {
     }, 0);
     return result;
 }
-console.log(aVeryBigSum(arr)); //5000000050
 
+console.log(aVeryBigSum(arr)); //5000000050
 
 
 /**
@@ -84,39 +85,44 @@ function diagonalDifference(arr) {
     let rightDiagonal = 0;
     let leftDiagonal = 0;
 
-    for(let i=0; i<arr.length; i+=(columns+1)){
+    for (let i = 0; i < arr.length; i += (columns + 1)) {
         // console.log(arr[i]);
         rightDiagonal += arr[i];
     }
     console.log('Правая диагональ равна ' + rightDiagonal);
 
-    for(let i=columns-1; i<arr.length-1; i+=(columns-1)){
+    for (let i = columns - 1; i < arr.length - 1; i += (columns - 1)) {
         // console.log(arr[i]);
         leftDiagonal += arr[i];
     }
     console.log('Левая диагональ равна ' + leftDiagonal);
     // Делаем проверку: если из "правая" диагональ больше "левой", то вычитаем как есть. Если "правая" меньше, то добавляем по математическим правилам перед скобкой знак "-", чтоюы число
     // стало положительным.
-    if(rightDiagonal > leftDiagonal){
+    if (rightDiagonal > leftDiagonal) {
         return rightDiagonal - leftDiagonal;
     } else {
         return -(rightDiagonal - leftDiagonal);
     }
 }
+
 console.log('Разница сумм диагоналей равна - ' + diagonalDifference(array)); // Разница сумм диагоналей равна - 48
 console.log('Разница сумм диагоналей равна - ' + diagonalDifference(array_2)); // Разница сумм диагоналей равна - 117
-
 
 
 /** Задача:
  * Схожа с предыдущей, однако в ней первый элемент массива принимает значение количества столбцов/строк матрицы.
  * Остальные элементы - часть матрицы.
  * Если в массиве больше элементов, чем необходимо для матрицы - ненужные элементы отбросить.
+ * Если значение первого элемента не удовлетворяет условиям задачи - сделать проверку.
  */
 
 let array = [3, 1, 2, 3, 4, 5, 6, 9, 8, 9, 1, 5];
 
 function diagonalDifference(arr) {
+    if (Math.pow(arr[0], 2) > arr.length) {
+        return console.log('Первый элемент массива не соответствует заданным условиям!');
+    }
+
     let rightDiagonal = 0;
     let leftDiagonal = 0;
     arr.length = Math.pow(arr[0], 2) + 1;
