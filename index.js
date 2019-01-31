@@ -89,13 +89,13 @@ function diagonalDifference(arr) {
         // console.log(arr[i]);
         rightDiagonal += arr[i];
     }
-    console.log('Правая диагональ равна ' + rightDiagonal);
+    console.log('Правая диагональ = ' + rightDiagonal);
 
     for (let i = columns - 1; i < arr.length - 1; i += (columns - 1)) {
         // console.log(arr[i]);
         leftDiagonal += arr[i];
     }
-    console.log('Левая диагональ равна ' + leftDiagonal);
+    console.log('Левая диагональ = ' + leftDiagonal);
     // Делаем проверку: если из "правая" диагональ больше "левой", то вычитаем как есть. Если "правая" меньше, то добавляем по математическим правилам перед скобкой знак "-", чтоюы число
     // стало положительным.
     if (rightDiagonal > leftDiagonal) {
@@ -105,8 +105,8 @@ function diagonalDifference(arr) {
     }
 }
 
-console.log('Разница сумм диагоналей равна - ' + diagonalDifference(array)); // Разница сумм диагоналей равна - 48
-console.log('Разница сумм диагоналей равна - ' + diagonalDifference(array_2)); // Разница сумм диагоналей равна - 117
+console.log('Разница сумм диагоналей = ' + diagonalDifference(array)); // Разница сумм диагоналей равна - 48
+console.log('Разница сумм диагоналей = ' + diagonalDifference(array_2)); // Разница сумм диагоналей равна - 117
 
 
 /** Задача:
@@ -144,10 +144,43 @@ function diagonalDifference(arr) {
     }
 }
 
-console.log('Разница сумм диагоналей равна - ' + diagonalDifference(array)); // Разница сумм диагоналей равна - 2.
+console.log('Разница сумм диагоналей = ' + diagonalDifference(array)); // Разница сумм диагоналей равна - 2.
 
 
 
+
+/** Задача:
+ * Вычислить длины диагоналей матрицы и абсолютную разницу между ними в случае, когда массив данных имеет вложенные массивы:
+ * Если вложенный массив содержит элементов больше, чем требуется для построения квадратной матрицы - ограничить массив.
+ *
+ * */
+let array = [ [ 11, 2, 4, 3 ], [ 4, 5, 6, 1 ], [ 10, 8, -12, 1 ] ];
+
+function diagonalDifference(arr) {
+    let rightDiagonal = 0;
+    let leftDiagonal = 0;
+
+    console.log(arr);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].length = arr.length;
+        console.log('Правая диагональ ' + arr[i][i]);
+        rightDiagonal += arr[i][i];
+
+        arr[i].reverse();        
+        console.log('Левая диагональ ' + arr[i][i]);
+        leftDiagonal += arr[i][i]  ;
+    }
+    console.log('Сумма диагонали = ' + rightDiagonal);
+    console.log('Сумма диагонали = ' + leftDiagonal);
+
+    if (rightDiagonal > leftDiagonal) {
+        return rightDiagonal - leftDiagonal;
+    } else {
+        return -(rightDiagonal - leftDiagonal);
+    }
+}
+
+console.log('Разница сумм диагоналей = ' + diagonalDifference(array));
 
 
 
