@@ -166,7 +166,7 @@ function diagonalDifference(arr) {
         console.log('Правая диагональ ' + arr[i][i]);
         rightDiagonal += arr[i][i];
 
-        arr[i].reverse();        
+        arr[i].reverse();
         console.log('Левая диагональ ' + arr[i][i]);
         leftDiagonal += arr[i][i]  ;
     }
@@ -185,6 +185,56 @@ console.log('Разница сумм диагоналей = ' + diagonalDifferen
 
 
 
+/** Задача:
+ *Имеется массив целых чисел от -n до +n. Необходимо вычислить все положительные числа, все отрицательные и числа равные 0.
+ * Найти соотношение количества положительных, отрицательных и "нулевых" чисел к общему количеству чисел в массиве.
+ * Записать результат соотношения, как десятичную дробь с 6 знаками после запятой.
+ * Конечный результат должен быть представлен в виде строк:
+ * 1 строка - результат соотношения положительных чисел;
+ * 2 строка - результат соотношения отрицательных чисел;
+ * 3 строка - результат соотношения "нулевых" чисел.
+ * Например:
+ 0.500000
+ 0.333333
+ 0.166667
+ *
+ * */
+let array= [ -4, 3, -9, 0, 4, 1 ];
+
+function plusMinus(arr) {
+    let positive = [];
+    let negative = [];
+    let zero = [];
+    arr.forEach(function(item){
+        if(item > 0){
+            positive.push(item);
+        }
+        if(item < 0){
+            negative.push(item);
+        }
+        if(item === 0){
+            zero.push(item);
+        }
+    });
+
+    let strPositive = (positive.length/arr.length).toFixed(6);
+    let strNegative = (negative.length/arr.length).toFixed(6);
+    let strZero = (zero.length/arr.length).toFixed(6);
+
+    let result = strPositive + '\n' + strNegative + '\n' + strZero;
+    // или через массив...
+//let result = [];
+//result.push(strPositive, strNegative, strZero);
+//result = result.join('\n');
+    console.log(typeof result);
+    return result;
+}
+
+console.log('Результат соотношения:' + '\n' + plusMinus(array));
+// Результат соотношения:
+// 0.500000
+// 0.333333
+// 0.166667
 
 
 
