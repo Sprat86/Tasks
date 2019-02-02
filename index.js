@@ -287,7 +287,39 @@ staircase(6);
 
 
 
+/**Задача:
+ * Усложним предыдущую задачу и построим лестницу с выравниванием по правому краю.
+ * Пример:
+      #
+     ##
+    ###
+   ####
+  #####
+ ######
+ * Иные условия задачи остаются прежними.
+ *
+ * */
+function staircase(n) {
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        arr.push(i);
+    }
+    let newArr = arr.map((item) => item = ' ');
+    for (let i = 0; i < newArr.length; i++) {
+        newArr.shift();
+        newArr.push('#');
+        let str = newArr.join('');
+        console.log(str);
+    }
+}
 
+staircase(6);
+//      #
+//     ##
+//    ###
+//   ####
+//  #####
+// ######
 
 
 
