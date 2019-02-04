@@ -323,3 +323,44 @@ staircase(6);
 
 
 
+/** Задача:
+ * Написать функцию, которая выводила бы в консоль ёелочку, высота и ширина основания которой равнялась бы целому числу 'n':
+ * Пример:
+      *
+     ***
+    *****
+   *******
+  *********
+
+ * */
+
+function christmasTree(n) {
+    let arr = [];
+    let newArr = [];
+    let resultArr = [];
+    for (let i = 0; i < n; i++) {
+        arr.push(' ');
+    }
+    let center = (n-1)/2;
+    for(let j=1; j<=n; j++){
+        newArr.push('*');
+        let filterArr = newArr.filter(function(item, i, arr){
+            if(arr.length%2 !== 0){
+                return arr;
+            }
+        });
+        if(filterArr.length > 0){
+            resultArr.push(filterArr);
+        }
+    }
+    for(let i=0; i <= center; i++){
+        let str = resultArr[i].join('');
+        let count = center;
+        count -= i;
+        arr.splice(count, n, str);
+        let resultStr = arr.join('');
+        console.log(resultStr);
+    }
+}
+
+christmasTree(9);
