@@ -461,3 +461,55 @@ function miniMaxSum(str) {
 
 console.log("Результат равен: " + miniMaxSum(str));
 // Результат равен: 114 168
+
+
+/**
+ * или другой способ решения предыдущей задачи:
+ * */
+let str = '55 1 20 3 2 41 4 5 38';
+
+function miniMaxSum(str) {
+
+    let arrMin = str.split(' ');
+    let arrMax = str.split(' ');
+
+    arrMin = arrMin.map(function(item){
+        return +item;
+    });
+
+    arrMax = arrMax.map(function(item){
+        return +item;
+    });
+
+    function sortArr(a, b){
+        if (a > b){
+            return 1
+        }
+        if (a < b){
+            return -1
+        }
+        if (a === b){
+            return 0
+        }
+    }
+
+    function reduceArr(sum, item){
+        return sum + item
+    }
+
+    let resultMin = arrMin.sort(sortArr);
+    let resultMax = arrMax.sort(sortArr);
+
+    resultMin.pop();
+    resultMin = resultMin.reduce(reduceArr);
+
+    resultMax.shift();
+    resultMax = resultMax.reduce(reduceArr);
+
+
+    let result = [resultMin, resultMax].join(' ');
+    return result;
+}
+
+console.log("Результат равен: " + miniMaxSum(str));
+// Результат равен: 114 168
