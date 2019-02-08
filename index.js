@@ -559,4 +559,51 @@ console.log("В конкурсе могут участвовать " + partyAgeM
 
 
 
+/** Задача:
+ * Дана строка со значением времени в формате АМ/РМ.
+ * Необходимо написать функцию, которая возвращает время в 24-часовом формате.
+ * Например:
+ '11:00:45PM' = "23:00:45"
+ '11:00:45AM' = "11:00:45"
+ '12:24:13PM' = "12:24:13"
+ '12:24:13AM' = "00:24:13"
+ *
+ */
+let time = '11:00:45PM';
+let time_2 = '11:00:45AM';
+let time_3 = '12:24:13PM';
+let time_4 = '12:24:13AM';
 
+function timeConversion(s) {
+    let hour = 12;
+
+    if (s.indexOf('PM') !== -1) {
+        let result = s.slice(0, -2);
+
+        if (result.indexOf('12') !== -1){
+            return result;
+        }else {
+            let str = result.slice(0, 2);
+            hour = String(+str + hour);
+            if (hour >= '00' && hour <= 23) {
+                return hour.concat(result.slice(2));
+            }
+        }
+    }
+
+    if (s.indexOf('AM') !== -1) {
+        let result = s.slice(0, -2);
+        if (result.indexOf('12') !== -1){
+            hour = '00';
+            return hour.concat(result.slice(2));
+        } else {
+            return result;
+        }
+    }
+
+}
+
+timeConversion(time);   // "23:00:45"
+timeConversion(time_2); // "11:00:45"
+timeConversion(time_3); // "12:24:13"
+timeConversion(time_4); // "00:24:13"
