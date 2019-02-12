@@ -795,9 +795,20 @@ function getTotalX(a, b) {
     let obj = {};
     let array = [];
     let arr = [];
+
     result.forEach(function(item){
         obj[item] = obj[item] + 1 || 1;
     });
+
+/** ИЛИ
+    let obj = result.reduce(function(sum, item) {
+        sum[item] = (sum[item] || 0) + 1;
+        return sum;
+    }, {});
+    console.log(obj);
+ Тогда let obj = {} не нужен.
+*/
+
     for (let key in obj) {
         if(obj[key] === count){
             array.push(obj[key]);
