@@ -793,8 +793,8 @@ function getTotalX(a, b) {
     }
 
     let obj = {};
-    let array = [];
-    let arr = [];
+    let numbersCount = [];
+    let numbers = [];
 
     result.forEach(function(item){
         obj[item] = obj[item] + 1 || 1;
@@ -811,11 +811,11 @@ function getTotalX(a, b) {
 
     for (let key in obj) {
         if(obj[key] === count){
-            array.push(obj[key]);
-            arr.push(key);
+            numbersCount.push(obj[key]);
+            numbers.push(key);
         }
     }
-    return str = "Чисел, на которые делятся без остатка все элементы двух массивов - " + array.length + ". Это числа: " + arr;
+    return str = "Чисел, на которые делятся без остатка все элементы двух массивов - " + numbersCount.length + ". Это числа: " + numbers;
 }
 
 getTotalX(a, b);
@@ -866,8 +866,6 @@ function getTotalX(a, b) {
                 }
 
             }
-
-
         }
     });
     arrayRepeat.length = arrayUniq.length;
