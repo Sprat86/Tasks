@@ -821,3 +821,58 @@ function getTotalX(a, b) {
 getTotalX(a, b);
 
 // "Чисел, на которые делятся без остатка все элементы двух массивов - 3. Это числа: 4,8,16"
+
+
+/** Решение предыдущей задачи без использования объекта (через массивы):*/
+var a = [ 2, 4 ];
+var b = [ 16, 32, 96 ];
+
+function getTotalX(a, b) {
+
+    let start = a[a.length-1];
+    let end = b[0];
+    let result = [];
+
+    let count = a.length + b.length;
+
+    for(let i = start; i <= end; i++){
+        for (let j = 0; j < a.length; j++){
+            if((i % a[j]) === 0){
+                result.push(i);
+            }
+        }
+
+        for (let k = 0; k < b.length; k++){
+            if((b[k] % i) === 0){
+                result.push(i);
+            }
+        }
+    }
+
+    let arrayUniq = Array.from(new Set(result));
+    let arrayRepeat = [];
+    let numbersCount = [];
+    let numbers = [];
+
+    result.forEach((item)=>{
+        for (let j = 0; j < arrayUniq.length; j++){
+            if (arrayUniq[j] === item) {
+                arrayRepeat.push(0);
+                arrayRepeat[j]++;
+
+                if (arrayRepeat[j] === count) {
+                    numbersCount.push(arrayRepeat[j]);
+                    numbers.push(arrayUniq[j]);
+                }
+
+            }
+
+
+        }
+    });
+    arrayRepeat.length = arrayUniq.length;
+
+    return str = "Чисел, на которые делятся без остатка все элементы двух массивов - " + numbersCount.length + ". Это числа: " + numbers;
+}
+
+getTotalX(a, b);
