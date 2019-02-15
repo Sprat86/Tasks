@@ -895,3 +895,34 @@ getTotalX(a, b);
  Необходимо написать функцию, результатом которой была бы строка "Чапаев улучшал свой результат N раз(а). И ухудшал свой результат N раз(а)"
  *
  * */
+let scores = [ 10, 5, 20, 5, 20, 4, 5, 2, 25, 1 ];
+
+function breakingRecords(scores) {
+
+    let highestScore = scores[0];
+    let lowestScore = scores[0];
+    let arrHighest = [];
+    let arrLowest = [];
+
+
+    scores.forEach((item)=>{
+        if(highestScore < item ){
+            highestScore = item;
+            arrHighest.push(highestScore);
+        }
+
+        if(item < lowestScore){
+            arrLowest.push(item);
+        }
+
+    });
+
+    let resultLowest = Array.from(new Set(arrLowest));    
+
+    let str = 'Чапаев улучшал свой результат ' + arrHighest.length + ' раз(а). И ухудшал свой результат ' + resultLowest.length + ' раз(а)';
+    return str;
+}
+
+breakingRecords(scores);
+
+// "Чапаев улучшал свой результат 2 раз(а). И ухудшал свой результат 4 раз(а)"
