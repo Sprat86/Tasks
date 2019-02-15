@@ -912,14 +912,13 @@ function breakingRecords(scores) {
         }
 
         if(item < lowestScore){
+            lowestScore = item;
             arrLowest.push(item);
         }
 
     });
 
-    let resultLowest = Array.from(new Set(arrLowest));    
-
-    let str = 'Чапаев улучшал свой результат ' + arrHighest.length + ' раз(а). И ухудшал свой результат ' + resultLowest.length + ' раз(а)';
+    let str = 'Чапаев улучшал свой результат ' + arrHighest.length + ' раз(а). И ухудшал свой результат ' + arrLowest.length + ' раз(а)';
     return str;
 }
 
