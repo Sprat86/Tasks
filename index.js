@@ -942,4 +942,29 @@ breakingRecords(scores);
  Необходиом написать функцию, которая возвращает строку следующего содержания:
  "Игрок лотереи получит N дополнительный(ых) билет(а/ов) для участия в следующем розыгрыше."
  * */
+let number = [ 15, 2, 10, 3, 2, 13, 25, 2, 11, 0, 0, 15 ];
+let day = 15;
+let month = 3;
 
+function birthday(s, d, m) {
+
+    let result = [];
+
+    s.forEach((item, i, arr) => {
+        let arrSumma;
+        if(m <= arr.length) {
+            let arrDel = arr.slice(i, m++);
+            arrSumma = arrDel.reduce((sum, item) => sum + item);
+
+        }
+        if (arrSumma === d){
+            result.push(arrSumma);
+        }
+    });
+
+    let str = "Игрок лотереи получит " + result.length + " дополнительный(ых) билет(а/ов) для участия в следующем розыгрыше.";
+    return str;
+}
+
+birthday(number, day, month);
+// "Игрок лотереи получит 3 дополнительный(ых) билет(а/ов) для участия в следующем розыгрыше."
