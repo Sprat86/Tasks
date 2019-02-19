@@ -981,4 +981,29 @@ birthday(number, day, month);
  Необходимо написать функцию, которая выводила бы строку: "Из колоды карточек игры пары имеют N карточки(ек)"
  *
  * */
+let cards = [10, 20, 20, 10, 10, 30, 50, 10, 20];
 
+function sockMerchant(arr) {
+
+    let obj = {};
+    arr.forEach(function(item){
+        if (!obj[item]) {
+            obj[item] = 1;
+        }else {
+            obj[item]++;
+        }
+    });
+
+    let arrCount = [];
+    for (let key in obj) {
+        let count = Math.floor(obj[key] / 2);
+        arrCount.push(count);
+    }
+
+    let result = arrCount.reduce((sum, item) => sum + item);
+    let str = "Из колоды " + result + " карточки(ек) имеют пары.";
+    return str;
+}
+
+sockMerchant(cards);
+// "Из колоды 3 карточки(ек) имеют пары."
