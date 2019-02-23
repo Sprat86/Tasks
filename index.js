@@ -285,6 +285,27 @@ staircase(6);
 // #####
 // ######
 
+/** ИЛИ */
+function staircase(n) {
+    let arr = [];
+    let str = '#';
+    for (let i = 0; i < n; i++) {
+        arr.push(str);
+        str += '#';
+    }
+    let result = arr.join('\n');
+    console.log(result);
+}
+
+staircase(6);
+// #
+// ##
+// ###
+// ####
+// #####
+// ######
+
+
 
 
 /**Задача:
@@ -320,6 +341,7 @@ staircase(6);
 //   ####
 //  #####
 // ######
+
 
 
 
