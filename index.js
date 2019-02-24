@@ -1085,3 +1085,34 @@ sumPairs(number, splitter, arr);
  Птиц второго и третьего вида встречается по два экземпляра, но самый редкий их них второй. Это и является результатом работы.
  Необходимо написать функцию, которая выводила бы строку "Наиболее распространенные из самых редких видов птиц птицы под номером N."
  */
+let birds = [ 1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4 ];
+
+function migratoryBirds(arr) {
+    let objBirds = {};
+
+    arr.forEach((item) => {
+        if (objBirds[item]) {
+            objBirds[item]++;
+        } else {
+            objBirds[item] = 1;
+        }
+    });
+
+    let arrBirds = [];
+    for (let key in objBirds) {
+        arrBirds.push({ID: key, value: objBirds[key]});
+    }
+
+    arrBirds.sort((a, b) => {return a.value - b.value});
+
+    let arrResult = arrBirds.filter((item, i, arr) => {
+        if (item.value === arr[arr.length-1].value){
+            return item;
+        }
+    });
+
+    return "Наиболее распространенные из самых редких видов птиц птицы под номером " + arrResult[0].ID + "." ;
+}
+
+migratoryBirds(birds);
+// "Наиболее распространенные из самых редких видов птиц птицы под номером 3."
