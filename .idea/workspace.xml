@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2fc8309-7e06-446d-94d4-61b9b02ed0d2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="897">
-              <caret line="1156" column="0" lean-forward="true" selection-start-line="1156" selection-start-column="0" selection-end-line="1156" selection-end-column="0" />
+            <state relative-caret-position="710">
+              <caret line="1167" column="5" lean-forward="true" selection-start-line="1167" selection-start-column="5" selection-end-line="1167" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -104,7 +103,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Task JS for ME" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -133,12 +132,12 @@
       <updated>1548584444112</updated>
       <workItem from="1548584446936" duration="57106000" />
       <workItem from="1551183669939" duration="1657000" />
-      <workItem from="1551269170901" duration="1852000" />
+      <workItem from="1551269170901" duration="3158000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60615000" />
+    <option name="totallyTimeSpent" value="61921000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -207,8 +206,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="1156" column="0" lean-forward="true" selection-start-line="1156" selection-start-column="0" selection-end-line="1156" selection-end-column="0" />
+        <state relative-caret-position="710">
+          <caret line="1167" column="5" lean-forward="true" selection-start-line="1167" selection-start-column="5" selection-end-line="1167" selection-end-column="5" />
           <folding />
         </state>
       </provider>

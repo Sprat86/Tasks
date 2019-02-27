@@ -1150,6 +1150,27 @@ migratoryBirds(birds);
  К цели оба мальчика придут одновременно.
  *
  */
+function catAndMouse(x, y, z) {
+    let positionBoyA = x;
+    let positionBoyB = y;
+    let positionCookie = z;
+
+    let differenceA =  Math.abs(positionBoyA - positionCookie);
+
+    let differenceB = Math.abs(positionBoyB - positionCookie);
+
+    if (differenceA < differenceB){
+        return 'Правом первым откусить печенюшку обладает boy A';
+    } else if (differenceB < differenceA) {
+        return 'Правом первым откусить печенюшку обладает boy B';
+    } else {
+        return 'В ходе соревнований ни одна печенюшка не пострадала';
+    }
+}
+
+catAndMouse(21, 95, 58); // "В ходе соревнований ни одна печенюшка не пострадала"
+catAndMouse(22, 75, 70); // "Правом первым откусить печенюшку обладает boy B"
+catAndMouse(33, 86, 59); // "Правом первым откусить печенюшку обладает boy A"
 
 
 
